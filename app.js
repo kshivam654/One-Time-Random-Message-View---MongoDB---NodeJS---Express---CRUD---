@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
+app.get("/ping", (req, res) => {
+    res.send("API IS LIVE");
+});
 app.use("/", MessageRoute);
 
 mongoose
