@@ -4,14 +4,17 @@ exports.getMessage = async (req, res, next) => {
     Message.findOne()
         .then((product) => {
             console.log(product);
-            Message.deleteOne({ _id: product._id })
-                .then((result) => {
-                    console.log("Message Been deleted");
-                    res.status(200).json()
-                })
-                .catch((error) => {
-                    console.log("Cant perfrom delete");
-                });
+            if (product != null) {
+                Message.deleteOne({ _id: product._id })
+                    .then((result) => {
+                        console.log("Message Been deleted");
+                        res.status(200).json(product);
+                    })
+                    .catch((error) => {
+                        console.log("Cant perfrom delete");
+                    });
+            }
+            res.status(201).json()
         })
         .catch((error) => {
             console.error(error);
@@ -34,7 +37,7 @@ exports.postMessage = (req, res, next) => {
         .save()
         .then((result) => {
             console.log("Message Got ADDED to DB!!");
-            res.status(200).json()
+            res.status(200).json();
         })
         .catch((error) => {
             console.error("Error-> data insert");
