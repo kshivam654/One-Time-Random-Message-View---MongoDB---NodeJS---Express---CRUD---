@@ -2,10 +2,10 @@
   "name": "kissne-bola",
   "version": "1.0.0",
   "description": "Backend apis for the app to send random message of someone to someone else",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "author": "Kumar Shivam",
   "license": "ISC",
